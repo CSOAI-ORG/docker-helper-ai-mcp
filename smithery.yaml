@@ -1,0 +1,10 @@
+name: docker-helper-ai-mcp
+description: "MEOK AI Labs — Docker Helper tools for AI agents and LLMs"
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/docker-helper-ai-mcp
+license: MIT
+categories: [DevOps, Containers]
+tags: [docker, containerization, docker-compose, container-management]
+runtime: python
+entrypoint: server.py
