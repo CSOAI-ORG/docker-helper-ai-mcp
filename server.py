@@ -1,4 +1,9 @@
 """Docker Helper AI MCP Server — Docker tools."""
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import re
 import time
 from typing import Any
@@ -26,8 +31,12 @@ TEMPLATES = {
 }
 
 @mcp.tool()
-def generate_dockerfile(language: str, app_port: int = 0, env_vars: str = "", multi_stage: bool = False) -> dict[str, Any]:
+def generate_dockerfile(language: str, app_port: int = 0, env_vars: str = "", multi_stage: bool = False, api_key: str = "") -> dict[str, Any]:
     """Generate a Dockerfile. Languages: python, node, go, rust, static."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("generate_dockerfile"):
         return {"error": "Rate limit exceeded (50/day)"}
     lang = language.lower()
@@ -67,8 +76,12 @@ def generate_dockerfile(language: str, app_port: int = 0, env_vars: str = "", mu
     return {"dockerfile": dockerfile, "language": lang, "port": port, "multi_stage": t.get("multistage", False) or multi_stage}
 
 @mcp.tool()
-def parse_compose(compose_yaml: str) -> dict[str, Any]:
+def parse_compose(compose_yaml: str, api_key: str = "") -> dict[str, Any]:
     """Parse and analyze a docker-compose YAML string (basic YAML parser)."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("parse_compose"):
         return {"error": "Rate limit exceeded (50/day)"}
     services = []
@@ -101,8 +114,12 @@ def parse_compose(compose_yaml: str) -> dict[str, Any]:
     }
 
 @mcp.tool()
-def optimize_image(dockerfile: str) -> dict[str, Any]:
+def optimize_image(dockerfile: str, api_key: str = "") -> dict[str, Any]:
     """Analyze a Dockerfile and suggest optimizations."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("optimize_image"):
         return {"error": "Rate limit exceeded (50/day)"}
     suggestions = []
@@ -138,8 +155,12 @@ def optimize_image(dockerfile: str) -> dict[str, Any]:
     return {"suggestions": suggestions, "score": score, "layers": len(from_lines) + len(run_lines), "from_count": len(from_lines)}
 
 @mcp.tool()
-def security_scan_data(dockerfile: str) -> dict[str, Any]:
+def security_scan_data(dockerfile: str, api_key: str = "") -> dict[str, Any]:
     """Scan Dockerfile for security issues (static analysis)."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("security_scan_data"):
         return {"error": "Rate limit exceeded (50/day)"}
     issues = []

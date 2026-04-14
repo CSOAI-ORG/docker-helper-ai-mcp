@@ -1,10 +1,37 @@
 name: docker-helper-ai-mcp
-description: "MEOK AI Labs — Docker Helper tools for AI agents and LLMs"
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/docker-helper-ai-mcp
-license: MIT
-categories: [DevOps, Containers]
-tags: [docker, containerization, docker-compose, container-management]
-runtime: python
-entrypoint: server.py
+description: MCP server for Docker tools.
+version: 1.0.0
+tools:
+- name: generate_dockerfile
+  description: 'Generate a Dockerfile. Languages: python, node, go, rust, static.'
+  parameters:
+  - name: language
+    type: string
+    required: true
+  - name: app_port
+    type: integer
+    required: false
+  - name: env_vars
+    type: string
+    required: false
+  - name: multi_stage
+    type: boolean
+    required: false
+- name: parse_compose
+  description: Parse and analyze a docker-compose YAML string (basic YAML parser).
+  parameters:
+  - name: compose_yaml
+    type: string
+    required: true
+- name: optimize_image
+  description: Analyze a Dockerfile and suggest optimizations.
+  parameters:
+  - name: dockerfile
+    type: string
+    required: true
+- name: security_scan_data
+  description: Scan Dockerfile for security issues (static analysis).
+  parameters:
+  - name: dockerfile
+    type: string
+    required: true

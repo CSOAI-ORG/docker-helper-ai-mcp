@@ -1,23 +1,76 @@
 {
   "name": "docker-helper-ai-mcp",
-  "description": "MEOK AI Labs \u2014 Docker Helper tools for AI agents and LLMs",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/docker-helper-ai-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "MCP server for Docker tools.",
+  "version": "1.0.0",
   "tools": [
-    "generate_dockerfile",
-    "parse_compose",
-    "optimize_image",
-    "security_scan_data"
-  ],
-  "categories": [
-    "DevOps",
-    "Containers"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "generate_dockerfile",
+      "description": "Generate a Dockerfile. Languages: python, node, go, rust, static.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string"
+          },
+          "app_port": {
+            "type": "integer"
+          },
+          "env_vars": {
+            "type": "string"
+          },
+          "multi_stage": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "language"
+        ]
+      }
+    },
+    {
+      "name": "parse_compose",
+      "description": "Parse and analyze a docker-compose YAML string (basic YAML parser).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "compose_yaml": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "compose_yaml"
+        ]
+      }
+    },
+    {
+      "name": "optimize_image",
+      "description": "Analyze a Dockerfile and suggest optimizations.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "dockerfile": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dockerfile"
+        ]
+      }
+    },
+    {
+      "name": "security_scan_data",
+      "description": "Scan Dockerfile for security issues (static analysis).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "dockerfile": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dockerfile"
+        ]
+      }
+    }
+  ]
 }
