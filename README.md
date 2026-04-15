@@ -1,21 +1,33 @@
-# docker-helper-ai-mcp
+# Docker Helper AI MCP Server
 
-MCP server for Docker tools.
+> By [MEOK AI Labs](https://meok.ai) — Docker container management, Dockerfile analysis, and compose utilities
 
-## Tools
+## Installation
 
-- **generate_dockerfile** — Generate Dockerfiles for Python, Node, Go, Rust, static
-- **parse_compose** — Parse and analyze docker-compose YAML
-- **optimize_image** — Suggest Dockerfile optimizations
-- **security_scan_data** — Static security analysis of Dockerfiles
+```bash
+pip install docker-helper-ai-mcp
+```
 
 ## Usage
 
 ```bash
-pip install mcp
 python server.py
 ```
 
-## Rate Limits
+## Tools
 
-50 calls/day per tool (free tier).
+This server provides Docker management tools including:
+
+- Dockerfile generation from templates (Python, Node.js, Go, Java, Ruby, Rust)
+- Dockerfile linting and best practice checking
+- Docker Compose file generation
+- Container status and management
+- Image optimization suggestions
+
+## Authentication
+
+Free tier: 15 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
+
+## License
+
+MIT — MEOK AI Labs
