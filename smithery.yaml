@@ -1,5 +1,6 @@
 name: docker-helper-ai-mcp
-description: MEOK AI Labs MCP Server
+description: 'Docker Helper Ai MCP server. Tools: generate dockerfile, parse compose,
+  optimize image. Built by MEOK AI Labs.'
 version: 1.0.0
 tools:
 - name: generate_dockerfile
