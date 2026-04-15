@@ -22,3 +22,6 @@ Repository = "https://github.com/CSOAI-ORG/docker-helper-ai-mcp"
 [tool.hatch.build.targets.wheel]
 packages = ["."]
 only-include = ["server.py"]
+
+[project.scripts]
+docker_helper_ai_mcp = "server:main"
