@@ -9,7 +9,7 @@ import time
 from typing import Any
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("docker-helper-ai-mcp")
+mcp = FastMCP("docker-helper-ai", instructions="MEOK AI Labs MCP Server")
 _calls: dict[str, list[float]] = {}
 DAILY_LIMIT = 50
 
