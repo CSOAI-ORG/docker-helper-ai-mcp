@@ -45,7 +45,22 @@ TEMPLATES = {
 
 @mcp.tool()
 def generate_dockerfile(language: str, app_port: int = 0, env_vars: str = "", multi_stage: bool = False, api_key: str = "") -> dict[str, Any]:
-    """Generate a Dockerfile. Languages: python, node, go, rust, static."""
+    """Generate a Dockerfile. Languages: python, node, go, rust, static.
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -91,7 +106,23 @@ def generate_dockerfile(language: str, app_port: int = 0, env_vars: str = "", mu
 
 @mcp.tool()
 def parse_compose(compose_yaml: str, api_key: str = "") -> dict[str, Any]:
-    """Parse and analyze a docker-compose YAML string (basic YAML parser)."""
+    """Parse and analyze a docker-compose YAML string (basic YAML parser).
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -130,7 +161,23 @@ def parse_compose(compose_yaml: str, api_key: str = "") -> dict[str, Any]:
 
 @mcp.tool()
 def optimize_image(dockerfile: str, api_key: str = "") -> dict[str, Any]:
-    """Analyze a Dockerfile and suggest optimizations."""
+    """Analyze a Dockerfile and suggest optimizations.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -172,7 +219,23 @@ def optimize_image(dockerfile: str, api_key: str = "") -> dict[str, Any]:
 
 @mcp.tool()
 def security_scan_data(dockerfile: str, api_key: str = "") -> dict[str, Any]:
-    """Scan Dockerfile for security issues (static analysis)."""
+    """Scan Dockerfile for security issues (static analysis).
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
