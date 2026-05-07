@@ -60,6 +60,14 @@ def generate_dockerfile(language: str, app_port: int = 0, env_vars: str = "", mu
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        language (str): The language to analyze or process.
+        app_port (int): The app port to analyze or process.
+        env_vars (str): The env vars to analyze or process.
+        multi_stage (bool): The multi stage to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -136,6 +144,11 @@ def parse_compose(compose_yaml: str, api_key: str = "") -> dict[str, Any]:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        compose_yaml (str): The compose yaml to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -205,6 +218,11 @@ def optimize_image(dockerfile: str, api_key: str = "") -> dict[str, Any]:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        dockerfile (str): The dockerfile to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -277,6 +295,11 @@ def security_scan_data(dockerfile: str, api_key: str = "") -> dict[str, Any]:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        dockerfile (str): The dockerfile to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
