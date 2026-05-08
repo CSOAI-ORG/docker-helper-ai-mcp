@@ -6,40 +6,51 @@
 
 <div align="center">
 
-[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/docker-helper-ai-mcp)](https://github.com/CSOAI-ORG/docker-helper-ai-mcp/stargazers)
+# Docker Helper Ai MCP
 
-# udockerU helperU aiU mcp
+**Docker Helper AI MCP Server — Docker tools.**
 
-****
-
-[![npm version](https://img.shields.io/npm/v/@meok-ai/docker-helper-ai-mcp)](https://www.npmjs.com/package/@meok-ai/docker-helper-ai-mcp)
+[![PyPI](https://img.shields.io/pypi/v/meok-docker-helper-ai-mcp)](https://pypi.org/project/meok-docker-helper-ai-mcp/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
-
-[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/docker-helper-ai-mcp/issues)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-MCP_Server-purple)](https://meok.ai)
 
 </div>
 
----
+## Overview
+
+Docker Helper AI MCP Server — Docker tools.
+
+## Tools
+
+| Tool | Description |
+|------|-------------|
+| `generate_dockerfile` | Generate a Dockerfile. Languages: python, node, go, rust, static. |
+| `parse_compose` | Parse and analyze a docker-compose YAML string (basic YAML parser). |
+| `optimize_image` | Analyze a Dockerfile and suggest optimizations. |
+| `security_scan_data` | Scan Dockerfile for security issues (static analysis). |
 
 ## Installation
 
 ```bash
-pip install docker-helper-ai-mcp
-# or
-npm install -g @meok-ai/docker-helper-ai-mcp
+pip install meok-docker-helper-ai-mcp
 ```
 
-## Quick Start
+## Usage with Claude Desktop
 
-See the project repository for full documentation and examples.
+Add to your Claude Desktop MCP config:
 
-## Enterprise Support
-
-- 📧 nicholas@csoai.org
-- 🌐 [CSOAI.org](https://csoai.org)
+```json
+{
+  "mcpServers": {
+    "docker-helper-ai": {
+      "command": "python",
+      "args": ["-m", "meok_docker_helper_ai_mcp.server"]
+    }
+  }
+}
+```
 
 ## License
 
-MIT © [CSOAI](https://csoai.org)
+MIT © [MEOK AI Labs](https://meok.ai)
 <!-- mcp-name: io.github.CSOAI-ORG/docker-helper-ai-mcp -->
