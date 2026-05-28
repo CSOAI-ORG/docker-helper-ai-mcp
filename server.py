@@ -1,7 +1,6 @@
 """Docker Helper AI MCP Server — Docker tools."""
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 import re
@@ -12,6 +11,15 @@ from mcp.server.fastmcp import FastMCP
 import json
 from datetime import datetime, timezone
 from collections import defaultdict
+
+STRIPE_199 = "https://buy.stripe.com/00wfZjcgAeUW4c5cyQ8k90K"
+
+def _add_upgrade_tail(response, tier="free"):
+    """Append upgrade nudge to free-tier success responses."""
+    if isinstance(response, dict) and tier == "free":
+        response["_upgrade_note"] = "Pro tier: unlimited calls + priority support. Upgrade: " + STRIPE_199
+    return response
+
 
 FREE_DAILY_LIMIT = 15
 _usage = defaultdict(list)
@@ -85,7 +93,7 @@ def generate_dockerfile(language: str, app_port: int = 0, env_vars: str = "", mu
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("generate_dockerfile"):
@@ -166,7 +174,7 @@ def parse_compose(compose_yaml: str, api_key: str = "") -> dict[str, Any]:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("parse_compose"):
@@ -240,7 +248,7 @@ def optimize_image(dockerfile: str, api_key: str = "") -> dict[str, Any]:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("optimize_image"):
@@ -317,7 +325,7 @@ def security_scan_data(dockerfile: str, api_key: str = "") -> dict[str, Any]:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("security_scan_data"):
@@ -347,5 +355,8 @@ def security_scan_data(dockerfile: str, api_key: str = "") -> dict[str, Any]:
     score = max(0, 100 - sum(25 if i["severity"] == "critical" else 15 if i["severity"] == "high" else 10 if i["severity"] == "medium" else 5 for i in issues))
     return {"issues": issues, "issue_count": len(issues), "security_score": score}
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()
