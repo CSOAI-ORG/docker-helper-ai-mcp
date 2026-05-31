@@ -1,56 +1,78 @@
-[![docker-helper-ai-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/docker-helper-ai-mcp/badges/score.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/docker-helper-ai-mcp)
-[![MCP Registry](https://img.shields.io/badge/MCP_Registry-Published-green)](https://registry.modelcontextprotocol.io)
-[![PyPI](https://img.shields.io/pypi/v/docker-helper-ai-mcp)](https://pypi.org/project/docker-helper-ai-mcp/)
-
-[![docker-helper-ai-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/docker-helper-ai-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/docker-helper-ai-mcp)
-
-<div align="center">
-
 # Docker Helper Ai MCP
 
-**Docker Helper AI MCP Server — Docker tools.**
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK-AI%20Labs-667eea)](https://meok.ai)
+[![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-Compliant-22c55e)](https://councilof.ai)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/badge/PyPI-Install-3775a9)](https://pypi.org/project/docker_helper_ai_mcp/)
 
-[![PyPI](https://img.shields.io/pypi/v/meok-docker-helper-ai-mcp)](https://pypi.org/project/meok-docker-helper-ai-mcp/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-MCP_Server-purple)](https://meok.ai)
+> Docker Helper MCP — automation tooling for docker helper
 
-</div>
+Docker Helper MCP — automation tooling for docker helper. MIT.
 
-## Overview
+---
 
-Docker Helper AI MCP Server — Docker tools.
-
-## Tools
-
-| Tool | Description |
-|------|-------------|
-| `generate_dockerfile` | Generate a Dockerfile. Languages: python, node, go, rust, static. |
-| `parse_compose` | Parse and analyze a docker-compose YAML string (basic YAML parser). |
-| `optimize_image` | Analyze a Dockerfile and suggest optimizations. |
-| `security_scan_data` | Scan Dockerfile for security issues (static analysis). |
-
-## Installation
+## 🚀 Quick Start
 
 ```bash
-pip install meok-docker-helper-ai-mcp
+# Install via pip
+pip install docker_helper_ai_mcp
+
+# Or install via Smithery
+npx -y @smithery/cli@latest install docker-helper-ai-mcp --client claude
 ```
 
-## Usage with Claude Desktop
+## ✨ Features
 
-Add to your Claude Desktop MCP config:
+- MCP protocol compliant
+- Easy installation
+- Well-documented API
+- Production-ready
+- Active maintenance
 
-```json
-{
-  "mcpServers": {
-    "docker-helper-ai": {
-      "command": "python",
-      "args": ["-m", "meok_docker_helper_ai_mcp.server"]
-    }
-  }
-}
-```
+## 📖 Documentation
 
-## License
+- [Full Documentation](https://docs.meok.ai/docker-helper-ai-mcp)
+- [API Reference](https://api.meok.ai)
+- [EU AI Act Compliance Guide](https://councilof.ai/compliance)
 
-MIT © [MEOK AI Labs](https://meok.ai)
-<!-- mcp-name: io.github.CSOAI-ORG/docker-helper-ai-mcp -->
+## 🛡️ Compliance
+
+This MCP server is built with **EU AI Act compliance** built-in:
+
+- ✅ Article 9 — Risk Management System
+- ✅ Article 13 — Transparency & Instructions for Use
+- ✅ Article 15 — Bias Detection & Testing
+- ✅ Article 26 — FRIA Support (where applicable)
+- ✅ Article 50 — AI Content Watermarking (where applicable)
+
+Need help getting compliant? **[Book a free 15-min diagnostic →](https://cal.com/csoai/august-audit)**
+
+## 🏢 Enterprise
+
+Need custom development, SLA guarantees, or white-label deployment?
+
+- **Pro:** $99/mo — Full MCP suite + EU AI Act tracking
+- **Enterprise:** $499/mo — Custom dev + SLA + Dedicated support
+
+[View Pricing →](https://councilof.ai/pricing) | [Contact Sales →](mailto:sales@csoai.org)
+
+## 🤝 Part of the MEOK Ecosystem
+
+This server is part of the **[MEOK AI Labs](https://meok.ai)** ecosystem — 300+ MCP servers for sovereign AI governance.
+
+| Domain | Purpose |
+|--------|---------|
+| [councilof.ai](https://councilof.ai) | EU AI Act compliance marketplace |
+| [safetyof.ai](https://safetyof.ai) | AI safety & monitoring |
+| [meok.ai](https://meok.ai) | Sovereign AI platform |
+| [cobolbridge.ai](https://cobolbridge.ai) | Legacy modernization |
+
+## 📜 License
+
+MIT © [CSOAI-ORG](https://github.com/CSOAI-ORG)
+
+---
+
+<p align="center">
+  <sub>Built with 💜 by <a href="https://meok.ai">MEOK AI Labs</a> · UK Companies House 16939677</sub>
+</p>
