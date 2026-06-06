@@ -1,0 +1,9 @@
+# docker-helper-ai-mcp - Auto-trigger Rules
+
+When the user asks about docker helper, use docker-helper-ai-mcp tools: generate_dockerfile, parse_compose, optimize_image, security_scan_data
+
+**Docker Helper AI MCP Server — Docker tools.**
+
+Install: `pip install docker-helper-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.

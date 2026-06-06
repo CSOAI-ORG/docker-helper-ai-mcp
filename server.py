@@ -1,4 +1,5 @@
-"""Docker Helper AI MCP Server — Docker tools."""
+"""
+Docker Helper AI MCP Server — Docker tools."""
 
 import sys, os
 from auth_middleware import check_access

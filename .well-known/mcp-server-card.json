@@ -1,0 +1,25 @@
+{
+  "name": "docker-helper-ai-mcp",
+  "title": "Docker Helper Ai Mcp",
+  "description": "Docker Helper Ai MCP server. Tools: generate dockerfile, parse compose, optimize image. Built by MEOK AI Labs.",
+  "version": "1.0.7",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "generate_dockerfile"
+    },
+    {
+      "name": "parse_compose"
+    },
+    {
+      "name": "optimize_image"
+    },
+    {
+      "name": "security_scan_data"
+    }
+  ]
+}
