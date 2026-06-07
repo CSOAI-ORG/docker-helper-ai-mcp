@@ -1,0 +1,22 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "docker-helper-ai-mcp",
+    "description": "Docker Helper Ai MCP Server by MEOK AI Labs",
+    "version": "1.0.7",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "docker-helper-ai-mcp"
+      }
+    ],
+    "capabilities": [
+      "generate_dockerfile",
+      "parse_compose",
+      "optimize_image",
+      "security_scan_data"
+    ]
+  }
+}
