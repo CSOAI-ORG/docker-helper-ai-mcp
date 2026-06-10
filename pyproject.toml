@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "docker-helper-ai-mcp"
-version = "1.0.7"
+version = "1.0.10"
 readme = "README.md"
 description = "Docker Helper Ai MCP server. Tools: generate dockerfile, parse compose, optimize image. Built by MEOK AI Labs."
 license = {file = "LICENSE"}
